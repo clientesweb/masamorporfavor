@@ -18,17 +18,13 @@
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
   --bs-primary: #a9c5a0;
-  --bs-primary-rgb: 169, 197, 160;
   --bs-secondary: #f5b6c8;
-  --bs-secondary-rgb: 245, 182, 200;
-  --bs-light: #f5efe0;
-  --bs-light-rgb: 245, 239, 224;
-  --bs-dark: #333333;
-  --bs-dark-rgb: 51, 51, 51;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
+  --bs-light: #f5efe0;
+  --bs-dark: #333333;
   --bs-font-sans-serif:
     system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -4009,5 +4005,16 @@ fieldset:disabled .btn {
 }
 .card-body {
   flex: 1 1 auto;
-  padding:
+  padding: 1rem 1rem;
+}
+.card-title {
+  margin-bottom: .5rem;
+}
+.card-subtitle {
+  margin-top: -0.25rem;
+  margin-bottom: 0;
+}
+.card-text:last-child {
+  margin-bottom: 0;
+}
 
