@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>+AMOR - Galería de Flyers Té Detox</title>
+    <title>+AMOR - Galería de Flyers</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="té detox, desintoxicación, bienestar, natural, flyers" name="keywords">
     <meta content="Galería de flyers promocionales de nuestro Té Detox natural" name="description">
@@ -25,6 +25,7 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -32,16 +33,22 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- Lightbox CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-
     <style>
+        .logo-img {
+            height: 80px;
+        }
+
+        .gallery-container {
+            margin-bottom: 30px;
+        }
+
         .gallery-item {
             margin-bottom: 30px;
             transition: all 0.3s;
-            border-radius: 10px;
             overflow: hidden;
+            border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .gallery-item:hover {
@@ -51,14 +58,12 @@
 
         .gallery-img {
             width: 100%;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: all 0.5s;
+            height: auto;
+            transition: transform 0.5s;
         }
 
-        .gallery-img:hover {
-            transform: scale(1.02);
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
         }
 
         .gallery-overlay {
@@ -71,8 +76,6 @@
             width: 100%;
             height: 0;
             transition: .5s ease;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -90,18 +93,29 @@
             width: 90%;
         }
 
-        .filter-buttons {
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             margin-bottom: 30px;
         }
 
-        .filter-button {
+        .filter-btn {
+            padding: 8px 20px;
             margin: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 30px;
+            color: #212529;
+            font-weight: 500;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
-        .filter-button:hover, .filter-button.active {
+        .filter-btn:hover, .filter-btn.active {
             background-color: var(--primary);
             color: white;
+            border-color: var(--primary);
         }
     </style>
 </head>
@@ -122,7 +136,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <a href="index.html" class="navbar-brand">
-                    <img src="img/logo-amor.png" alt="+AMOR" style="height: 60px;">
+                    <img src="img/logo-amor.png" alt="+AMOR" class="logo-img">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -131,20 +145,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="index.html" class="nav-item nav-link">Inicio</a>
-                        <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                        <a href="product.html" class="nav-item nav-link">Productos</a>
+                        <a href="product.html" class="nav-item nav-link">Tienda</a>
+                        <a href="index.html#blog-section" class="nav-item nav-link">Blog</a>
+                        <a href="index.html#testimonial-section" class="nav-item nav-link">Reseñas</a>
                         <a href="gallery.html" class="nav-item nav-link active">Galería</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Características</a>
-                                <a href="how-to-use.html" class="dropdown-item">Cómo Usar</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonios</a>
-                                <a href="blog.html" class="dropdown-item">Blog</a>
-                                <a href="404.html" class="dropdown-item">404 Página</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                        <a href="index.html#contact-section" class="nav-item nav-link">Contacto</a>
                     </div>
                     <a href="" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block">Comprar Ahora</a>
                 </div>
@@ -156,134 +161,183 @@
 
     <!-- Hero Start -->
     <div class="container-fluid bg-primary hero-header mb-5">
-        <div class="container text-center">
-            <h1 class="display-4 text-white mb-3 animated slideInDown">Galería de Flyers</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Inicio</a></li>
-                    <li class="breadcrumb-item text-white" aria-current="page">Galería</li>
-                </ol>
-            </nav>
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h3 class="fw-light text-white animated slideInRight">Promocionales</h3>
+                    <h1 class="display-4 text-white animated slideInRight">Galería de <span class="fw-light text-dark">Flyers</span></h1>
+                    <p class="text-white mb-4 animated slideInRight">Descubre nuestra colección de flyers promocionales que destacan los beneficios y propiedades de nuestro Té Detox.</p>
+                    <a href="#gallery-section" class="btn btn-dark py-2 px-4 me-3 animated slideInRight">Ver Galería</a>
+                    <a href="" class="btn btn-outline-dark py-2 px-4 animated slideInRight">Contáctanos</a>
+                </div>
+                <div class="col-lg-6">
+                    <img class="img-fluid animated pulse infinite" src="img/te-detox.png" alt="Té Detox">
+                </div>
+            </div>
         </div>
     </div>
     <!-- Hero End -->
 
 
     <!-- Gallery Start -->
-    <div class="container-fluid py-5">
+    <div id="gallery-section" class="container-fluid py-5">
         <div class="container">
             <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Nuestra Galería de</span> Flyers Promocionales</h1>
-                <p class="mb-5">Descubre nuestra colección de flyers promocionales que destacan los beneficios y propiedades de nuestro Té Detox.</p>
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Nuestra</span> Galería de Flyers</h1>
+                <p class="mb-5">Explora nuestra colección de flyers promocionales que destacan los beneficios y propiedades de nuestro Té Detox.</p>
             </div>
 
-            <div class="text-center filter-buttons wow fadeIn" data-wow-delay="0.2s">
-                <button class="btn btn-outline-primary filter-button active" data-filter="all">Todos</button>
-                <button class="btn btn-outline-primary filter-button" data-filter="energia">Energía</button>
-                <button class="btn btn-outline-primary filter-button" data-filter="digestion">Digestión</button>
-                <button class="btn btn-outline-primary filter-button" data-filter="peso">Pérdida de Peso</button>
-                <button class="btn btn-outline-primary filter-button" data-filter="belleza">Belleza</button>
+            <!-- Gallery Filters -->
+            <div class="gallery-filter wow fadeIn" data-wow-delay="0.3s">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="energia">Energía</button>
+                <button class="filter-btn" data-filter="digestion">Digestión</button>
+                <button class="filter-btn" data-filter="peso">Pérdida de Peso</button>
+                <button class="filter-btn" data-filter="belleza">Belleza</button>
             </div>
 
-            <div class="row g-4 portfolio-container wow fadeIn" data-wow-delay="0.3s">
-                <div class="col-lg-4 col-md-6 portfolio-item energia">
-                    <div class="position-relative gallery-item">
+            <div class="row g-4 gallery-container">
+                <!-- Gallery Item 1 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s" data-category="energia">
+                    <div class="gallery-item">
                         <a href="img/flyer-1.jpeg" data-lightbox="gallery" data-title="¿Te sientes sin energía?">
-                            <img class="img-fluid gallery-img" src="img/flyer-1.jpeg" alt="Flyer Energía">
+                            <img class="gallery-img img-fluid" src="img/flyer-1.jpeg" alt="Flyer Energía">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">¿Te sientes sin energía?</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">¿Te sientes sin energía?</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item digestion">
-                    <div class="position-relative gallery-item">
-                        <a href="img/flyer-2.jpeg" data-lightbox="gallery" data-title="La inflamación no es normal">
-                            <img class="img-fluid gallery-img" src="img/flyer-2.jpeg" alt="Flyer Inflamación">
+
+                <!-- Gallery Item 2 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s" data-category="digestion">
+                    <div class="gallery-item">
+                        <a href="img/flyer-2.jpeg" data-lightbox="gallery" data-title="Mejora tu digestión">
+                            <img class="gallery-img img-fluid" src="img/flyer-2.jpeg" alt="Flyer Digestión">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Mejora tu digestión</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">La inflamación no es normal</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item energia">
-                    <div class="position-relative gallery-item">
+
+                <!-- Gallery Item 3 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s" data-category="energia">
+                    <div class="gallery-item">
                         <a href="img/flyer-3.jpeg" data-lightbox="gallery" data-title="¿Te gustaría dormir mejor?">
-                            <img class="img-fluid gallery-img" src="img/flyer-3.jpeg" alt="Flyer Sueño">
+                            <img class="gallery-img img-fluid" src="img/flyer-3.jpeg" alt="Flyer Sueño">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">¿Te gustaría dormir mejor?</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">¿Te gustaría dormir mejor?</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item digestion">
-                    <div class="position-relative gallery-item">
-                        <a href="img/flyer-4.jpeg" data-lightbox="gallery" data-title="¿Te sientes pesado después de comer?">
-                            <img class="img-fluid gallery-img" src="img/flyer-4.jpeg" alt="Flyer Digestión">
+
+                <!-- Gallery Item 4 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s" data-category="belleza">
+                    <div class="gallery-item">
+                        <a href="img/flyer-4.jpeg" data-lightbox="gallery" data-title="Piel radiante">
+                            <img class="gallery-img img-fluid" src="img/flyer-4.jpeg" alt="Flyer Piel">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Piel radiante</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">¿Te sientes pesado después de comer?</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item digestion">
-                    <div class="position-relative gallery-item">
-                        <a href="img/flyer-5.jpeg" data-lightbox="gallery" data-title="¿Sufres de estreñimiento?">
-                            <img class="img-fluid gallery-img" src="img/flyer-5.jpeg" alt="Flyer Estreñimiento">
+
+                <!-- Gallery Item 5 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s" data-category="peso">
+                    <div class="gallery-item">
+                        <a href="img/flyer-5.jpeg" data-lightbox="gallery" data-title="Controla tu peso">
+                            <img class="gallery-img img-fluid" src="img/flyer-5.jpeg" alt="Flyer Peso">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Controla tu peso</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">¿Sufres de estreñimiento?</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item peso">
-                    <div class="position-relative gallery-item">
+
+                <!-- Gallery Item 6 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s" data-category="peso">
+                    <div class="gallery-item">
                         <a href="img/flyer-6.jpeg" data-lightbox="gallery" data-title="Olvida dietas extremas">
-                            <img class="img-fluid gallery-img" src="img/flyer-6.jpeg" alt="Flyer Dietas">
+                            <img class="gallery-img img-fluid" src="img/flyer-6.jpeg" alt="Flyer Dietas">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Olvida dietas extremas</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">Olvida dietas extremas</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item energia">
-                    <div class="position-relative gallery-item">
-                        <a href="img/flyer-7.jpeg" data-lightbox="gallery" data-title="Reto Biohacking Detox">
-                            <img class="img-fluid gallery-img" src="img/flyer-7.jpeg" alt="Flyer Reto">
+
+                <!-- Gallery Item 7 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s" data-category="digestion">
+                    <div class="gallery-item">
+                        <a href="img/flyer-7.jpeg" data-lightbox="gallery" data-title="Adiós a la hinchazón">
+                            <img class="gallery-img img-fluid" src="img/flyer-7.jpeg" alt="Flyer Hinchazón">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Adiós a la hinchazón</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">Reto Biohacking Detox</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item peso">
-                    <div class="position-relative gallery-item">
-                        <a href="img/flyer-8.jpeg" data-lightbox="gallery" data-title="Desintoxicar tu hígado acelera la pérdida de peso">
-                            <img class="img-fluid gallery-img" src="img/flyer-8.jpeg" alt="Flyer Pérdida de Peso">
+
+                <!-- Gallery Item 8 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s" data-category="energia">
+                    <div class="gallery-item">
+                        <a href="img/flyer-8.jpeg" data-lightbox="gallery" data-title="Energía natural">
+                            <img class="gallery-img img-fluid" src="img/flyer-8.jpeg" alt="Flyer Energía Natural">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Energía natural</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">Desintoxicar tu hígado acelera la pérdida de peso</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item belleza">
-                    <div class="position-relative gallery-item">
+
+                <!-- Gallery Item 9 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s" data-category="belleza">
+                    <div class="gallery-item">
                         <a href="img/flyer-9.jpeg" data-lightbox="gallery" data-title="La clave para una piel radiante">
-                            <img class="img-fluid gallery-img" src="img/flyer-9.jpeg" alt="Flyer Piel">
+                            <img class="gallery-img img-fluid" src="img/flyer-9.jpeg" alt="Flyer Piel">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">La clave para una piel radiante</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">La clave para una piel radiante</div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item energia">
-                    <div class="position-relative gallery-item">
-                        <a href="img/flyer-10.jpeg" data-lightbox="gallery" data-title="Desintoxicar tu cuerpo es el primer paso">
-                            <img class="img-fluid gallery-img" src="img/flyer-10.jpeg" alt="Flyer Transformación">
+
+                <!-- Gallery Item 10 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s" data-category="digestion">
+                    <div class="gallery-item">
+                        <a href="img/flyer-10.jpeg" data-lightbox="gallery" data-title="Mejora tu sistema digestivo">
+                            <img class="gallery-img img-fluid" src="img/flyer-10.jpeg" alt="Flyer Sistema Digestivo">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Mejora tu sistema digestivo</div>
+                            </div>
                         </a>
-                        <div class="gallery-overlay">
-                            <div class="gallery-text">Desintoxicar tu cuerpo es el primer paso</div>
-                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 11 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s" data-category="peso">
+                    <div class="gallery-item">
+                        <a href="img/flyer-11.jpeg" data-lightbox="gallery" data-title="Transforma tu cuerpo">
+                            <img class="gallery-img img-fluid" src="img/flyer-11.jpeg" alt="Flyer Transformación">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Transforma tu cuerpo</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 12 -->
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s" data-category="belleza">
+                    <div class="gallery-item">
+                        <a href="img/flyer-12.jpeg" data-lightbox="gallery" data-title="Belleza desde el interior">
+                            <img class="gallery-img img-fluid" src="img/flyer-12.jpeg" alt="Flyer Belleza Interior">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">Belleza desde el interior</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -320,7 +374,7 @@
             <div class="row g-5">
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                     <a href="index.html" class="d-inline-block mb-3">
-                        <img src="img/logo-amor.png" alt="+AMOR" style="height: 60px;">
+                        <img src="img/logo-amor.png" alt="+AMOR" class="logo-img">
                     </a>
                     <p class="mb-0">En +AMOR creemos en el poder de lo natural para mejorar tu bienestar. Hacemos que pase con energía real y amor a favor de tu salud.</p>
                 </div>
@@ -387,33 +441,40 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
-    <!-- Gallery Filter Javascript -->
+    
+    <!-- Gallery Filter Script -->
     <script>
-        $(document).ready(function() {
-            $(".filter-button").click(function() {
-                var value = $(this).attr('data-filter');
-                
-                $(".filter-button").removeClass("active");
-                $(this).addClass("active");
-                
-                if(value == "all") {
-                    $(".portfolio-item").show("1000");
-                } else {
-                    $(".portfolio-item").not("." + value).hide("1000");
-                    $(".portfolio-item").filter("." + value).show("1000");
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all filter buttons and gallery items
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('[data-category]');
+            
+            // Add click event to each filter button
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide gallery items based on filter
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
             });
-        });
-
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'disableScrolling': true
         });
     </script>
 </body>
