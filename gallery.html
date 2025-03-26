@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>+AMOR - Galería de Flyers Té Detox</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="té detox, desintoxicación, bienestar, natural, flyers" name="keywords">
+    <meta content="Galería de flyers promocionales de nuestro Té Detox natural" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+    <style>
+        .gallery-item {
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(169, 197, 160, 0.3);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.5s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(169, 197, 160, 0.8);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: .5s ease;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            height: 80px;
+        }
+
+        .gallery-text {
+            color: white;
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+        }
+
+        .filter-buttons {
+            margin-bottom: 30px;
+        }
+
+        .filter-button {
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+        .filter-button:hover, .filter-button.active {
+            background-color: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Cargando...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/logo-amor.png" alt="+AMOR" style="height: 60px;">
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link">Inicio</a>
+                        <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                        <a href="product.html" class="nav-item nav-link">Productos</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="feature.html" class="dropdown-item">Características</a>
+                                <a href="how-to-use.html" class="dropdown-item">Cómo Usar</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                                <a href="blog.html" class="dropdown-item">Blog</a>
+                                <a href="gallery.html" class="dropdown-item active">Galería</a>
+                                <a href="404.html" class="dropdown-item">404 Página</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                    </div>
+                    <a href="" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block">Comprar Ahora</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary hero-header mb-5">
+        <div class="container text-center">
+            <h1 class="display-4 text-white mb-3 animated slideInDown">Galería de Flyers</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Inicio</a></li>
+                    <li class="breadcrumb-item text-white" aria-current="page">Galería</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Gallery Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Nuestra Galería de</span> Flyers Promocionales</h1>
+                <p class="mb-5">Descubre nuestra colección de flyers promocionales que destacan los beneficios y propiedades de nuestro Té Detox.</p>
+            </div>
+
+            <div class="text-center filter-buttons wow fadeIn" data-wow-delay="0.2s">
+                <button class="btn btn-outline-primary filter-button active" data-filter="all">Todos</button>
+                <button class="btn btn-outline-primary filter-button" data-filter="energia">Energía</button>
+                <button class="btn btn-outline-primary filter-button" data-filter="digestion">Digestión</button>
+                <button class="btn btn-outline-primary filter-button" data-filter="peso">Pérdida de Peso</button>
+                <button class="btn btn-outline-primary filter-button" data-filter="belleza">Belleza</button>
+            </div>
+
+            <div class="row g-4 portfolio-container wow fadeIn" data-wow-delay="0.3s">
+                <div class="col-lg-4 col-md-6 portfolio-item energia">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-1.jpeg" data-lightbox="gallery" data-title="¿Te sientes sin energía?">
+                            <img class="img-fluid gallery-img" src="img/flyer-1.jpeg" alt="Flyer Energía">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">¿Te sientes sin energía?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item digestion">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-2.jpeg" data-lightbox="gallery" data-title="La inflamación no es normal">
+                            <img class="img-fluid gallery-img" src="img/flyer-2.jpeg" alt="Flyer Inflamación">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">La inflamación no es normal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item energia">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-3.jpeg" data-lightbox="gallery" data-title="¿Te gustaría dormir mejor?">
+                            <img class="img-fluid gallery-img" src="img/flyer-3.jpeg" alt="Flyer Sueño">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">¿Te gustaría dormir mejor?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item digestion">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-4.jpeg" data-lightbox="gallery" data-title="¿Te sientes pesado después de comer?">
+                            <img class="img-fluid gallery-img" src="img/flyer-4.jpeg" alt="Flyer Digestión">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">¿Te sientes pesado después de comer?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item digestion">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-5.jpeg" data-lightbox="gallery" data-title="¿Sufres de estreñimiento?">
+                            <img class="img-fluid gallery-img" src="img/flyer-5.jpeg" alt="Flyer Estreñimiento">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">¿Sufres de estreñimiento?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item peso">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-6.jpeg" data-lightbox="gallery" data-title="Olvida dietas extremas">
+                            <img class="img-fluid gallery-img" src="img/flyer-6.jpeg" alt="Flyer Dietas">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Olvida dietas extremas</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item energia">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-7.jpeg" data-lightbox="gallery" data-title="Reto Biohacking Detox">
+                            <img class="img-fluid gallery-img" src="img/flyer-7.jpeg" alt="Flyer Reto">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Reto Biohacking Detox</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item peso">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-8.jpeg" data-lightbox="gallery" data-title="Desintoxicar tu hígado acelera la pérdida de peso">
+                            <img class="img-fluid gallery-img" src="img/flyer-8.jpeg" alt="Flyer Pérdida de Peso">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Desintoxicar tu hígado acelera la pérdida de peso</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item belleza">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-9.jpeg" data-lightbox="gallery" data-title="La clave para una piel radiante">
+                            <img class="img-fluid gallery-img" src="img/flyer-9.jpeg" alt="Flyer Piel">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">La clave para una piel radiante</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item energia">
+                    <div class="position-relative gallery-item">
+                        <a href="img/flyer-10.jpeg" data-lightbox="gallery" data-title="Desintoxicar tu cuerpo es el primer paso">
+                            <img class="img-fluid gallery-img" src="img/flyer-10.jpeg" alt="Flyer Transformación">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Desintoxicar tu cuerpo es el primer paso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
+
+
+    <!-- Newsletter Start -->
+    <div class="container-fluid newsletter bg-primary py-5 my-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-white mb-3"><span class="fw-light text-dark">Suscríbete a</span> Nuestro Boletín</h1>
+                <p class="text-white mb-4">Suscríbete ahora para obtener un 20% de descuento en tu primer pedido de Té Detox</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="position-relative w-100 mt-3 mb-2">
+                        <input class="form-control w-100 py-4 ps-4 pe-5" type="text" placeholder="Ingresa tu Email"
+                            style="height: 48px;">
+                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
+                                class="fa fa-paper-plane text-white fs-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-white footer">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <img src="img/logo-amor.png" alt="+AMOR" style="height: 60px;">
+                    </a>
+                    <p class="mb-0">En +AMOR creemos en el poder de lo natural para mejorar tu bienestar. Hacemos que pase con energía real y amor a favor de tu salud.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="mb-4">Contáctanos</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Calle Principal 123, Madrid, España</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+34 912 345 678</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@masamor.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="mb-4">Nuestros Productos</h5>
+                    <a class="btn btn-link" href="">Té Detox Adelgazante</a>
+                    <a class="btn btn-link" href="">Té Detox Digestivo</a>
+                    <a class="btn btn-link" href="">Té Detox Energizante</a>
+                    <a class="btn btn-link" href="">Té Detox Antioxidante</a>
+                    <a class="btn btn-link" href="">Té Detox Completo</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="mb-4">Enlaces Populares</h5>
+                    <a class="btn btn-link" href="">Sobre Nosotros</a>
+                    <a class="btn btn-link" href="">Contáctanos</a>
+                    <a class="btn btn-link" href="">Política de Privacidad</a>
+                    <a class="btn btn-link" href="">Términos y Condiciones</a>
+                    <a class="btn btn-link" href="">Trabaja con Nosotros</a>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">+AMOR</a>, Todos los Derechos Reservados.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Inicio</a>
+                            <a href="">Cookies</a>
+                            <a href="">Ayuda</a>
+                            <a href="">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Gallery Filter Javascript -->
+    <script>
+        $(document).ready(function() {
+            $(".filter-button").click(function() {
+                var value = $(this).attr('data-filter');
+                
+                $(".filter-button").removeClass("active");
+                $(this).addClass("active");
+                
+                if(value == "all") {
+                    $(".portfolio-item").show("1000");
+                } else {
+                    $(".portfolio-item").not("." + value).hide("1000");
+                    $(".portfolio-item").filter("." + value).show("1000");
+                }
+            });
+        });
+
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'disableScrolling': true
+        });
+    </script>
+</body>
+
+</html>
+
