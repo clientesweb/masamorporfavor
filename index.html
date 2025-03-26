@@ -71,6 +71,38 @@
             text-align: center;
             width: 90%;
         }
+
+        .logo-img {
+            height: 80px; /* Aumentado de 60px a 80px */
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .countdown-box {
+            background-color: rgba(169, 197, 160, 0.2);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin: 0 5px;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: var(--dark);
+            text-transform: uppercase;
+        }
     </style>
 </head>
 
@@ -90,7 +122,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <a href="index.html" class="navbar-brand">
-                    <img src="img/logo-amor.png" alt="+AMOR" style="height: 60px;">
+                    <img src="img/logo-amor.png" alt="+AMOR" class="logo-img">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -99,20 +131,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                        <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                        <a href="product.html" class="nav-item nav-link">Productos</a>
+                        <a href="product.html" class="nav-item nav-link">Tienda</a>
+                        <a href="#blog-section" class="nav-item nav-link">Blog</a>
+                        <a href="#testimonial-section" class="nav-item nav-link">Reseñas</a>
                         <a href="gallery.html" class="nav-item nav-link">Galería</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Características</a>
-                                <a href="how-to-use.html" class="dropdown-item">Cómo Usar</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonios</a>
-                                <a href="blog.html" class="dropdown-item">Blog</a>
-                                <a href="404.html" class="dropdown-item">404 Página</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                        <a href="#contact-section" class="nav-item nav-link">Contacto</a>
                     </div>
                     <a href="" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block">Comprar Ahora</a>
                 </div>
@@ -210,20 +233,22 @@
                             <h1 class="display-4 text-primary mb-4">$29.99</h1>
                             <h5>Té Detox Biohacking 7 Días</h5>
                             <p class="mb-4">Descubre nuestro té detox, elaborado con ingredientes naturales para ayudar a tu cuerpo a eliminar toxinas y mejorar tu bienestar general.</p>
-                            <div class="row g-0 cdt mb-4">
-                                <div class="col-3">
-                                    <h1 class="display-6" id="cdt-days"></h1>
+                            
+                            <div class="countdown-timer mb-4">
+                                <div class="countdown-box">
+                                    <p class="countdown-number" id="hours">24</p>
+                                    <p class="countdown-label">Horas</p>
                                 </div>
-                                <div class="col-3">
-                                    <h1 class="display-6" id="cdt-hours"></h1>
+                                <div class="countdown-box">
+                                    <p class="countdown-number" id="minutes">00</p>
+                                    <p class="countdown-label">Minutos</p>
                                 </div>
-                                <div class="col-3">
-                                    <h1 class="display-6" id="cdt-minutes"></h1>
-                                </div>
-                                <div class="col-3">
-                                    <h1 class="display-6" id="cdt-seconds"></h1>
+                                <div class="countdown-box">
+                                    <p class="countdown-number" id="seconds">00</p>
+                                    <p class="countdown-label">Segundos</p>
                                 </div>
                             </div>
+                            
                             <a class="btn btn-primary py-2 px-4" href="">Comprar Ahora</a>
                         </div>
                     </div>
@@ -443,7 +468,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid testimonial bg-primary my-5 py-5">
+    <div id="testimonial-section" class="container-fluid testimonial bg-primary my-5 py-5">
         <div class="container text-white py-5">
             <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="text-white mb-3">Nuestros Clientes Opinan <span class="fw-light text-dark">Sobre Nuestro Té Detox</span></h1>
@@ -479,7 +504,7 @@
 
 
     <!-- Blog Start -->
-    <div class="container-fluid py-5">
+    <div id="blog-section" class="container-fluid py-5">
         <div class="container">
             <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="text-primary mb-3"><span class="fw-light text-dark">De Nuestro</span> Blog</h1>
@@ -617,12 +642,12 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-white footer">
+    <div id="contact-section" class="container-fluid bg-white footer">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                     <a href="index.html" class="d-inline-block mb-3">
-                        <img src="img/logo-amor.png" alt="+AMOR" style="height: 60px;">
+                        <img src="img/logo-amor.png" alt="+AMOR" class="logo-img">
                     </a>
                     <p class="mb-0">En +AMOR creemos en el poder de lo natural para mejorar tu bienestar. Hacemos que pase con energía real y amor a favor de tu salud.</p>
                 </div>
@@ -692,6 +717,48 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set the countdown for 24 hours
+        function startCountdown() {
+            let hours = 24;
+            let minutes = 0;
+            let seconds = 0;
+            
+            function updateCountdown() {
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (hours === 0 && minutes === 0 && seconds === 0) {
+                    // Reset to 24 hours when countdown reaches zero
+                    hours = 24;
+                    minutes = 0;
+                    seconds = 0;
+                } else {
+                    if (seconds > 0) {
+                        seconds--;
+                    } else {
+                        seconds = 59;
+                        if (minutes > 0) {
+                            minutes--;
+                        } else {
+                            minutes = 59;
+                            hours--;
+                        }
+                    }
+                }
+            }
+            
+            // Update the countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // Start the countdown when the page loads
+        window.onload = startCountdown;
+    </script>
 </body>
 
 </html>
