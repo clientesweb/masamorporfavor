@@ -163,21 +163,33 @@
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .testimonial-tab {
-            padding: 10px 20px;
-            margin: 0 5px;
-            background-color: #f8f9fa;
+            padding: 10px 25px;
+            margin: 0 8px 10px 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .testimonial-tab.active {
-            background-color: var(--primary);
-            color: white;
+            background-color: white;
+            color: var(--primary);
+            border-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-tab:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         .testimonial-content {
@@ -966,8 +978,20 @@
                     
                     // Get target content and activate it
                     const target = this.getAttribute('data-target');
-                    document.getElementById(target + '-content').classList.add('active');
+                    const targetContent = document.getElementById(target + '-content');
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    } else {
+                        console.error('Content not found for target:', target);
+                    }
                 });
+            });
+
+            // Verify all tabs have correct data-target attributes
+            console.log('Tabs and their targets:');
+            tabs.forEach(tab => {
+                console.log(tab.getAttribute('data-target'), 'points to', 
+                    document.getElementById(tab.getAttribute('data-target') + '-content') ? 'valid element' : 'MISSING ELEMENT');
             });
         });
     </script>
