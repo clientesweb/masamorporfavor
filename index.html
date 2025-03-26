@@ -103,6 +103,90 @@
             color: var(--dark);
             text-transform: uppercase;
         }
+
+        .before-after-container {
+            position: relative;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .before-after-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(169, 197, 160, 0.4);
+        }
+
+        .before-after-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .before-after-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(169, 197, 160, 0.9);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .video-testimonial {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .testimonial-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-tab {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #f8f9fa;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .testimonial-tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .testimonial-content {
+            display: none;
+        }
+
+        .testimonial-content.active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -474,26 +558,129 @@
                 <h1 class="text-white mb-3">Nuestros Clientes Opinan <span class="fw-light text-dark">Sobre Nuestro Té Detox</span></h1>
                 <p class="mb-5">Descubre lo que nuestros clientes tienen que decir sobre su experiencia con nuestro té detox natural.</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
-                        <div class="testimonial-item text-center" data-dot="1">
-                            <img class="img-fluid border p-2" src="img/testimonial-1.jpg" alt="">
-                            <h5 class="fw-light lh-base text-white">"El Té Detox de +AMOR ha transformado mi rutina diaria. He notado una mejora en mi digestión y me siento con más energía. Además, me ha ayudado a perder esos kilos extra que tanto me costaba eliminar. ¡Totalmente recomendado!"</h5>
-                            <h5 class="mb-1">María González</h5>
-                            <h6 class="fw-light text-white fst-italic mb-0">Profesora</h6>
+
+            <!-- Tabs para navegación entre tipos de testimonios -->
+            <div class="testimonial-tabs wow fadeIn" data-wow-delay="0.3s">
+                <div class="testimonial-tab active" data-target="opiniones">Opiniones</div>
+                <div class="testimonial-tab" data-target="antes-despues">Antes y Después</div>
+                <div class="testimonial-tab" data-target="videos">Videos</div>
+            </div>
+
+            <!-- Contenido de Opiniones -->
+            <div class="testimonial-content active" id="opiniones-content">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
+                            <div class="testimonial-item text-center" data-dot="1">
+                                <img class="img-fluid border p-2" src="img/testimonial-1.jpg" alt="">
+                                <h5 class="fw-light lh-base text-white">"El Té Detox de +AMOR ha transformado mi rutina diaria. He notado una mejora en mi digestión y me siento con más energía. Además, me ha ayudado a perder esos kilos extra que tanto me costaba eliminar. ¡Totalmente recomendado!"</h5>
+                                <h5 class="mb-1">María González</h5>
+                                <h6 class="fw-light text-white fst-italic mb-0">Profesora</h6>
+                            </div>
+                            <div class="testimonial-item text-center" data-dot="2">
+                                <img class="img-fluid border p-2" src="img/testimonial-2.jpg" alt="">
+                                <h5 class="fw-light lh-base text-white">"Estaba buscando un té detox que realmente funcionara y encontré el de +AMOR. La diferencia es notable desde la primera semana. Mi piel luce más radiante y me siento menos hinchado. Me encanta saber que estoy usando un producto 100% natural."</h5>
+                                <h5 class="mb-1">Carlos Rodríguez</h5>
+                                <h6 class="fw-light text-white fst-italic mb-0">Empresario</h6>
+                            </div>
+                            <div class="testimonial-item text-center" data-dot="3">
+                                <img class="img-fluid border p-2" src="img/testimonial-3.jpg" alt="">
+                                <h5 class="fw-light lh-base text-white">"Como persona con problemas digestivos, siempre he tenido dificultades para encontrar productos que me ayuden. El Té Detox de +AMOR ha sido un descubrimiento maravilloso. Mi digestión ha mejorado notablemente y me siento con más energía durante todo el día. ¡No puedo estar más satisfecha!"</h5>
+                                <h5 class="mb-1">Laura Martínez</h5>
+                                <h6 class="fw-light text-white fst-italic mb-0">Diseñadora</h6>
+                            </div>
                         </div>
-                        <div class="testimonial-item text-center" data-dot="2">
-                            <img class="img-fluid border p-2" src="img/testimonial-2.jpg" alt="">
-                            <h5 class="fw-light lh-base text-white">"Estaba buscando un té detox que realmente funcionara y encontré el de +AMOR. La diferencia es notable desde la primera semana. Mi piel luce más radiante y me siento menos hinchado. Me encanta saber que estoy usando un producto 100% natural."</h5>
-                            <h5 class="mb-1">Carlos Rodríguez</h5>
-                            <h6 class="fw-light text-white fst-italic mb-0">Empresario</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido de Antes y Después -->
+            <div class="testimonial-content" id="antes-despues-content">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="before-after-container">
+                            <img src="img/before-after-1.png" alt="Antes y Después - 6 semanas con detox" class="before-after-img">
+                            <div class="before-after-label">6 semanas con detox</div>
                         </div>
-                        <div class="testimonial-item text-center" data-dot="3">
-                            <img class="img-fluid border p-2" src="img/testimonial-3.jpg" alt="">
-                            <h5 class="fw-light lh-base text-white">"Como persona con problemas digestivos, siempre he tenido dificultades para encontrar productos que me ayuden. El Té Detox de +AMOR ha sido un descubrimiento maravilloso. Mi digestión ha mejorado notablemente y me siento con más energía durante todo el día. ¡No puedo estar más satisfecha!"</h5>
-                            <h5 class="mb-1">Laura Martínez</h5>
-                            <h6 class="fw-light text-white fst-italic mb-0">Diseñadora</h6>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="before-after-container">
+                            <img src="img/before-after-2.png" alt="Desafío detox 6 semanas" class="before-after-img">
+                            <div class="before-after-label">Desafío detox 6 semanas</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="before-after-container">
+                            <img src="img/before-after-3.png" alt="Transformación en 7 días" class="before-after-img">
+                            <div class="before-after-label">Transformación en 7 días</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="before-after-container">
+                            <img src="img/before-after-4.png" alt="Resultados en 4 semanas" class="before-after-img">
+                            <div class="before-after-label">Resultados en 4 semanas</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="before-after-container">
+                            <img src="img/before-after-5.png" alt="Tratamiento completo 6 semanas" class="before-after-img">
+                            <div class="before-after-label">Tratamiento completo 6 semanas</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="before-after-container">
+                            <img src="img/before-after-6.png" alt="Resultados en 2 semanas" class="before-after-img">
+                            <div class="before-after-label">Resultados en 2 semanas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido de Videos -->
+            <div class="testimonial-content" id="videos-content">
+                <div class="row g-4">
+                    <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="video-testimonial">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/placeholder1" title="Testimonio de María sobre el Té Detox" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-3 bg-white text-dark">
+                                <h5>María - Perdió 8kg en 6 semanas</h5>
+                                <p class="mb-0">"Nunca pensé que un té pudiera cambiar tanto mi vida. Mi metabolismo se aceleró desde la primera semana."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="video-testimonial">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/placeholder2" title="Testimonio de Juan sobre el Té Detox" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-3 bg-white text-dark">
+                                <h5>Juan - Mejoró su digestión en 2 semanas</h5>
+                                <p class="mb-0">"Después de años de problemas digestivos, finalmente encontré algo que realmente funciona."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="video-testimonial">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/placeholder3" title="Testimonio de Ana sobre el Té Detox" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-3 bg-white text-dark">
+                                <h5>Ana - Aumentó su energía diaria</h5>
+                                <p class="mb-0">"Desde que tomo el té por las mañanas, mi energía dura todo el día y ya no necesito café."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                        <div class="video-testimonial">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/placeholder4" title="Testimonio de Carlos sobre el Té Detox" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-3 bg-white text-dark">
+                                <h5>Carlos - Mejoró su piel en 4 semanas</h5>
+                                <p class="mb-0">"Mi piel luce más radiante y joven. Los problemas de acné han disminuido considerablemente."</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -758,6 +945,31 @@
         
         // Start the countdown when the page loads
         window.onload = startCountdown;
+    </script>
+
+    <!-- Testimonial Tabs Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tabs and content sections
+            const tabs = document.querySelectorAll('.testimonial-tab');
+            const contents = document.querySelectorAll('.testimonial-content');
+            
+            // Add click event to each tab
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Get target content and activate it
+                    const target = this.getAttribute('data-target');
+                    document.getElementById(target + '-content').classList.add('active');
+                });
+            });
+        });
     </script>
 </body>
 
